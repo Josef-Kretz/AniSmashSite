@@ -38,7 +38,7 @@ app.use('/', mainRoutes)
 app.use('/api', apiRoutes)
 //https://stackoverflow.com/questions/55289375/redirecting-server-requests-to-index-html-for-react-angular-spa
 //let react handle all non-server urls
-app.get('*', (req, res) => res.sendFile(path.join(path.dirname(__dirname)+'/public/index.html')))
+app.get('*', (req, res) => res.sendFile(path.join(__dirname+'/public/index.html')))
 
 
 app.listen(process.env.PORT, () => {
