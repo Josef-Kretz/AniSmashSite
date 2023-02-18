@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e1ab2c44.css",
+    "main.js": "/static/js/main.0b3ea039.js",
+    "static/js/496.0f410371.chunk.js": "/static/js/496.0f410371.chunk.js",
+    "static/media/library.png": "/static/media/library.13298e5c8f5d76108f04.png",
+    "static/media/trailer.png": "/static/media/trailer.225a7028f9d0dcadd467.png",
+    "static/media/links.png": "/static/media/links.995de0f2bddd77364f57.png",
+    "static/media/disneyplus.png": "/static/media/disneyplus.ae728ea20cffdbfdddea.png",
+    "static/media/bilibili.png": "/static/media/bilibili.e701aaa022a69a8fe5de.png",
+    "static/media/animeLogo.svg": "/static/media/animeLogo.ae25d765c678bc0f31c51659ff2ea4ad.svg",
+    "static/media/modalLogo.svg": "/static/media/modalLogo.fdf1b4f7ba0630113262f7d66cabfeba.svg",
+    "static/media/cloud.svg": "/static/media/cloud.51c2713259090da053f18deeaa7b1144.svg",
+    "index.html": "/index.html",
+    "main.e1ab2c44.css.map": "/static/css/main.e1ab2c44.css.map",
+    "main.0b3ea039.js.map": "/static/js/main.0b3ea039.js.map",
+    "496.0f410371.chunk.js.map": "/static/js/496.0f410371.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e1ab2c44.css",
+    "static/js/main.0b3ea039.js"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "anismash",
+  "version": "1.0.0",
+  "description": "full stack app to smash or pass on anime trailers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Josef-Kretz/AniSmash.git"
+  },
+  "keywords": [
+    "anime",
+    "swiping",
+    "trailer"
+  ],
+  "author": "Josef Kretz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Josef-Kretz/AniSmash/issues"
+  },
+  "homepage": "https://github.com/Josef-Kretz/AniSmash#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^4.6.0",
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.8.3",
+    "node-fetch": "^2.6.8",
+    "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "validator": "^13.7.0"
+  }
+}
