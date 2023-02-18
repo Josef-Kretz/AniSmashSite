@@ -26,8 +26,7 @@ app.use(
         saveUninitialized: false,
         store: MongoStore.create(mongoose.connection),
         cookie: {
-            sameSite: 'none',
-            secure: true
+            sameSite: 'Lax'
         }
     })
   );
