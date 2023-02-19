@@ -1,15 +1,13 @@
-
-const User = require('../models/User')
 const main = {
-    addLike : async (req, res) => {
+    addLike : (req, res) => {
         try{
-            const user = await User.find({user: req.user})
+            const user = req.user
             const animeId = req.body.animeId
 
-            if(user[0].notLikes.includes(animeId)) user[0].notLikes = user[0].notLikes.filter(id => id != animeId)
-            if(!user[0].likes.includes(animeId)) user[0].likes.push(animeId)
+            if(user.notLikes.includes(animeId)) user.notLikes = user.notLikes.filter(id => id != animeId)
+            if(!user.likes.includes(animeId)) user.likes.push(animeId)
 
-            user[0].save()
+            user.save()
 
             res.status(200).json({isError: false, msg: 'Successfully updated'})
         }catch(err){
@@ -18,15 +16,15 @@ const main = {
         }
         
     },
-    hate : async (req, res) => {
+    hate : (req, res) => {
         try{
-            const user = await User.find({user: req.user})
+            const user = req.user
             const animeId = req.body.animeId
     
-            if(user[0].likes.includes(animeId)) user[0].likes = user[0].likes.filter(id => id != animeId)
-            if(!user[0].notLikes.includes(animeId)) user[0].notLikes.push(animeId)
+            if(user.likes.includes(animeId)) user.likes = user.likes.filter(id => id != animeId)
+            if(!user.notLikes.includes(animeId)) user.notLikes.push(animeId)
     
-            user[0].save()
+            user.save()
     
             res.status(200).json({isError: false, msg: 'Successfully updated'})
         }catch(err){
@@ -35,14 +33,24 @@ const main = {
         }
 
     },
-    getProfile : async (req, res) => {
+    getProfile : (req, res) => {
         try{
-            const user = await User.find({user : req.user})
+            const user = req.user
+
+            user.likes = user.likes.filter( (id, index, arr) => {
+                return arr.findIndex( (id2) => id===id2 ) === index
+            })
+
+            user.notLikes = user.notLikes.filter( (id, index, arr) => {
+                return arr.findIndex( (id2) => id===id2 ) === index
+            })
+
+            user.save()
 
             res.status(200).json({
-                email: user[0].email,
-                likes : user[0].likes,
-                notLikes : user[0].notLikes
+                email: user.email,
+                likes : user.likes,
+                notLikes : user.notLikes
             })
         }catch(err){
             console.log('err main getProfile:', err)
@@ -50,12 +58,12 @@ const main = {
         }
 
     },
-    eraseLikes : async (req, res) => {
+    eraseLikes : (req, res) => {
         try{
-            const user = await User.find({user : req.user})
+            const user = req.user
 
-            user[0].likes = []
-            user[0].save()
+            user.likes = []
+            user.save()
     
             res.status(200).json('Successfully erased Liked Anime')
         }catch(err){
@@ -63,12 +71,12 @@ const main = {
             res.status(500).json({isError: true, msg:`Server error: Try again later`})
         }
     },
-    eraseNotLikes : async (req, res) => {
+    eraseNotLikes : (req, res) => {
         try{
-            const user = await User.find({user : req.user})
+            const user = req.user
 
-            user[0].notLikes = []
-            user[0].save()
+            user.notLikes = []
+            user.save()
     
             res.status(200).json('Successfully erased Not Liked Anime')
         }catch(err){
@@ -76,9 +84,9 @@ const main = {
             res.status(500).json({isError: true, msg:`Server error: Try again later`})
         }
     },
-    deleteUser : async (req, res) => {
+    deleteUser : (req, res) => {
         try{
-            await User.deleteOne({user : req.user})
+            req.user.deleteOne()
             res.status(200).json('User has been deleted')
         }catch(err){
             console.log('err main deleteUser:', err)
