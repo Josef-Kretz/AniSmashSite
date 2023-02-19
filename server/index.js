@@ -15,7 +15,7 @@ require('../config/passport')(passport)
 connectDB()
 
 const app = express()
-app.use(express.static(path.join(path.dirname(__dirname)+'/public/')))
+app.use(express.static(path.join(path.dirname(__dirname)+'/public')))
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
