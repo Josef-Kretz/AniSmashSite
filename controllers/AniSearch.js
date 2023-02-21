@@ -179,7 +179,7 @@ const AniSearch = {
         const query = `{
             Page(page:1, perPage:12)
             {
-              media(id_in:[${animeList}],type: ANIME, format_in:[TV,MOVIE, ONA],sort:TRENDING_DESC, isAdult:false)
+              media(id_in:[${animeList}],type: ANIME,sort:TRENDING_DESC, isAdult:false)
               {
                 id
                 idMal
